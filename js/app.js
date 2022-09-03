@@ -52,8 +52,6 @@ const getNews = async (newsId, categoryName = "All News") => {
         displayNoNews.classList.remove('d-none');
         displayNews(data.data);
     };
-
-
 }
 
 
@@ -61,9 +59,14 @@ const getNews = async (newsId, categoryName = "All News") => {
 
 const displayNews = (data) => {
     toggoleSpining(true);
-    // console.log(data);
+    console.log(data[0].total_view);
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerText = '';
+
+    // news sorting by viws 
+    data.sort(function (a, b) {
+        return b.total_view - a.total_view;
+    });
     data.forEach(news => {
         console.log(news.author.img);
         const newsDiv = document.createElement('div');
