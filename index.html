@@ -42,14 +42,14 @@
                         </li>
                     </ul>
                     <!-- Left links -->
-
                     <div class="d-flex align-items-center">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
+                                <a class="nav-link btn" data-bs-toggle="modal" data-bs-target="#qustionsModal"
+                                    href="#">Blog</a>
                             </li>
                         </ul>
                     </div>
@@ -67,6 +67,7 @@
             <div id="category-container" class="d-flex justify-content-around my-3">
             </div>
         </section>
+
         <!-- show how many news  -->
         <section class="bg-light rounded d-flex align-items-center">
             <div class="w-100 pt-3 ">
@@ -75,6 +76,7 @@
             </div>
         </section>
 
+        <!-- category section  -->
         <section id="no-news" class=" d-none">
             <div class="border border-light rounded p-3 mt-4">
 
@@ -92,19 +94,59 @@
 
             </div>
         </section>
+
+        <!-- this section is for modal -->
+        <section>
+            <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="newsModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- this section is for modal -->
     </main>
 
-    <!-- this section is for modal -->
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- blog section modal show  -->
+    <div class="modal fade" id="qustionsModal" tabindex="-1" aria-labelledby="qustionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="qustionsModalLabel">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="modal-body" class="modal-body">
+                <div class="modal-body">
+                    <div class="container">
+                        <div>
+                            <h3>1. Difference Between var let const </h3>
+                            <p class="fs-5 text-info ps-5">Ans: </p>
+                        </div>
+                        <div>
+                            <h3>2. Difference between arrow function and normal function. </h3>
+                            <p class="fs-5 text-info ps-5">Ans: </p>
+                        </div>
+                        <div>
+                            <h3>3. Difference of map, foreach, filter, find. </h3>
+                            <p class="fs-5 text-info ps-5">Ans: </p>
+                        </div>
+                        <div>
+                            <h3>4. Why do we use template string in Javascript? </h3>
+                            <p class="fs-5 text-info ps-5">Ans: </p>
+                        </div>
 
+
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -113,8 +155,6 @@
             </div>
         </div>
     </div>
-    <!-- this section is for modal -->
-
 
 
 

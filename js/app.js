@@ -67,10 +67,10 @@ const displayNews = (data) => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'my-4');
         newsDiv.innerHTML = `
-        <div onclick="detailsModal('${news._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="row p-3  d-flex flex-column flex-sm-row flex-md-row flex-lg-row">
+        <div onclick="detailsModal('${news._id}')" data-bs-toggle="modal" data-bs-target="#newsModal" class="row p-3  d-flex flex-column flex-sm-row flex-md-row flex-lg-row">
      
             <div class="col-sm-4">
-                <img style="object-fit: cover;" class="img-fluid w-100 h-100 rounded-lg" src="${news.image_url}" alt="">
+                <img style="object-fit: cover;" class="img-fluid w-100 h-100 rounded" src="${news.image_url}" alt="">
             </div>
             <div class="col-sm-8">
                 <div class="p-3">
@@ -124,7 +124,7 @@ const detailsModal = async (newsId) => {
 }
 
 const setModalData = (data) => {
-    const modalTitle = document.getElementById('exampleModalLabel');
+    const modalTitle = document.getElementById('newsModalLabel');
     modalTitle.innerText = data.title;
     const modalContainer = document.getElementById('modal-body');
     modalContainer.innerText = '';
@@ -132,7 +132,7 @@ const setModalData = (data) => {
     innerModal.classList.add('card', 'w-100');
     innerModal.innerHTML = `
             <div class="m-auto">
-            <img src="${data.thumbnail_url}" class="card-img-top w-100" alt="...">
+            <img src="${data.thumbnail_url}" class="card-img-top w-100 pt-3" alt="...">
             </div>
             <div class="card-body">
              <p class="card-text fs-4 fw-bold"><span class="text-info">Publisher Name: </span>${data.author ? data.author.name : "No data found"}.</p>
