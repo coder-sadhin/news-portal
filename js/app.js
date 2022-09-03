@@ -18,9 +18,9 @@ const displayCategory = (data) => {
     const categoryContainer = document.getElementById('category-container');
     data.forEach(category => {
         const categoryList = document.createElement('div');
-        categoryList.classList.add('btn', 'fs-4', 'text-secondary');
+        categoryList.classList.add('btn', 'fs-4', 'text-secondary', 'row');
         categoryList.innerHTML = `
-        <p onclick="getNews(${category.category_id},'${category.category_name}')"> ${category.category_name}</p>
+        <p id="categori-section-item" onclick="getNews(${category.category_id},'${category.category_name}')"> ${category.category_name}</p>
         `
         categoryContainer.appendChild(categoryList);
     });
@@ -32,6 +32,7 @@ const getNews = async (newsId, categoryName = "All News") => {
     const showCategory = document.getElementById('category-name');
     const itemOfCategory = document.getElementById('item-of-category');
     const displayNoNews = document.getElementById('no-news');
+
 
     const url = `https://openapi.programming-hero.com/api/news/category/0${newsId}`;
     // console.log(url);
@@ -66,12 +67,12 @@ const displayNews = (data) => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'my-4');
         newsDiv.innerHTML = `
-        <div class="row p-3">
+        <div class="row p-3  d-flex flex-column flex-sm-row flex-md-row flex-lg-row">
      
             <div class="col-sm-4">
                 <img style="object-fit: cover;" class="img-fluid w-100 h-100 rounded-lg" src="${news.image_url}" alt="">
             </div>
-            <div class="col-sm-8 ">
+            <div class="col-sm-8">
                 <div class="p-3">
                     <h2>${news.title}.</h2>
                     <p>${news.details ? news.details.substring(0, 250) : " No Any Details"}</p>
@@ -125,3 +126,8 @@ const splitJoin = (data, from, end) => {
     return sliceArray.join('.');
 
 }
+
+
+// category item select color
+// const selectedItem = document.getElementById('categori-section-item');
+// selectedItem.classList.add('text-success')
