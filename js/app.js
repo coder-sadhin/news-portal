@@ -59,10 +59,9 @@ const getNews = async (newsId, categoryName = "All News") => {
 
 const displayNews = (data) => {
     toggoleSpining(true);
-    console.log(data[0].total_view);
+    // console.log(data[0].total_view);
     const newsContainer = document.getElementById('news-container');
-    newsContainer.innerText = '';
-
+    newsContainer.innerHTML = '';
     // news sorting by viws 
     data.sort(function (a, b) {
         return b.total_view - a.total_view;
