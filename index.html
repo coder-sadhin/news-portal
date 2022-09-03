@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/e615d4149b.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="container">
+<body class="container body">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -48,47 +48,30 @@
 
             </div>
         </section>
+        <!-- show how many news  -->
+        <section class="bg-light rounded d-flex align-items-center">
+            <div class="w-100 pt-3 ">
+                <p class="fs-4 ps-5 fw-bold"><span id="item-of-category"></span> items found for category <span
+                        id="category-name"></span></p>
+            </div>
+        </section>
 
-        <!-- try only  -->
+        <section id="no-news" class=" d-none">
+            <div class="border border-light rounded p-3 mt-4">
+
+                <div class="d-flex align-items-center justify-content-center bg-light" style="height: 250px">
+                    <h2 class="text-warning ">NOTHING TO SHOW ON THIS CATEGORY</h2>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- news section  -->
         <section>
             <div id="news-container" class="container">
 
-                <!-- <div class="card float-right p-3">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <img class="img-fluid w-100 rounded" src="https://picsum.photos/150?image=641" alt="">
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="p-3">
-                                <p>Copy paste the HTML and CSS.</p>
-                                <p>Change around the content for awsomenes</p>
-                                <br>
-                                <a href="#" class="btn btn-primary btn-sm float-right">Read More</a>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        <div>
-                                            <img class="img-fluid" src="images/student/student-5.png" alt="">
-                                        </div>
-                                        <div class="ms-3 mt-3">
-                                            <span class="fs-5 fw-semibold">Awlad Hossain</span>
-                                            <p>UI Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
 
-                    </div>
-                </div> -->
             </div>
-
-            <br>
-            <br>
         </section>
     </main>
 
