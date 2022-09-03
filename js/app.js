@@ -43,8 +43,9 @@ const getNews = async (newsId) => {
 const displayNews = (data) => {
     // console.log(data);
     const newsContainer = document.getElementById('news-container');
+    newsContainer.innerText = '';
     data.forEach(news => {
-        console.log(news.total_view);
+        console.log(news.details);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card');
         newsDiv.innerHTML = `
@@ -55,10 +56,9 @@ const displayNews = (data) => {
             </div>
             <div class="col-sm-9 ">
                 <div class="p-3">
-                    <p>Copy paste the HTML and CSS.</p>
-                    <p>Change around the content for awsomenes</p>
+                    <h2>${news.title}.</h2>
+                    <p>${news.details}</p>
                     <br>
-                    <a href="#" class="btn btn-primary btn-sm float-right">Read More</a>
                 </div>
                 <div>
                     <div class="d-flex justify-content-around">
@@ -68,22 +68,20 @@ const displayNews = (data) => {
                             </div>
                             <div class="ms-3 d-flex align-items-center">
                                 <div>
-                                    <span class="fs-5 fw-semibold">Awlad Hossain</span>
-                                    <p>UI Designer</p>
+                                    <span class="fs-5 fw-semibold">${news.author.name ? news.author.name : "No Author"}</span>
+                                    <p>${news.author.published_date}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex">
-                            <div class="d-flex align-items-center">
-                                <i class="fa-solid fa-eye fs-4"></i>
-                            </div>
-                            <div class="ms-3 fw-bold d-flex align-items-center">
-                                <p>${news.total_view}</p>
-                            </div>
+                        <div class="d-flex align-items-center">
+                            <p class="fw-bold"><i class="fa-solid fa-eye me-2"></i>${news.total_view ? news.total_view : "No data"}</p>
                         </div>
-                       
-                        <div></div>
-                        <div></div>
+                        <div class="d-flex align-items-center">
+                            <p class="fw-bold"><i class="fa-solid fa-star me-2"></i>${news.rating ? news.rating.number : "No Rating"}</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <p class="fw-bold fs-5"><i class="fa-solid text-primary fa-arrow-right"></i></p>
+                        </div>
                     </div> 
                 </div>
             </div>
