@@ -29,6 +29,7 @@ const displayCategory = (data) => {
 getGategory();
 // get news with id 
 const getNews = async (newsId, categoryName = "All News") => {
+
     const showCategory = document.getElementById('category-name');
     const itemOfCategory = document.getElementById('item-of-category');
     const displayNoNews = document.getElementById('no-news');
@@ -59,6 +60,7 @@ const getNews = async (newsId, categoryName = "All News") => {
 // display news 
 
 const displayNews = (data) => {
+    toggoleSpining(true);
     // console.log(data);
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerText = '';
@@ -107,6 +109,7 @@ const displayNews = (data) => {
         </div>
         `
         newsContainer.appendChild(newsDiv);
+        toggoleSpining(false);
     })
 }
 
@@ -141,4 +144,15 @@ const setModalData = (data) => {
             </div>
 `
     modalContainer.appendChild(innerModal);
+}
+
+
+const toggoleSpining = isLoading => {
+    const spinnerDiv = document.getElementById('spinner-div');
+    if (isLoading) {
+        spinnerDiv.classList.remove('d-none');
+    }
+    else {
+        spinnerDiv.classList.add('d-none')
+    }
 }
