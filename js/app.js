@@ -2,12 +2,18 @@
 
 const getGategory = async () => {
     // get api 
-    const url = 'https://openapi.programming-hero.com/api/news/categories';
+    try {
+        const url = 'https://openapi.programming-hero.com/api/news/categories';
 
-    const res = await fetch(url);
-    const data = await res.json();
+        const res = await fetch(url);
+        const data = await res.json();
 
-    displayCategory(data.data.news_category);
+        displayCategory(data.data.news_category);
+    }
+    catch (e) {
+        console.error(e);
+    }
+
 }
 
 // display category on web page 
@@ -121,11 +127,15 @@ getNews(8);
 // model show function here 
 const detailsModal = async (newsId) => {
     // console.log(data);
-    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
-    const res = await fetch(url);
-    const data = await res.json();
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+        const res = await fetch(url);
+        const data = await res.json();
 
-    setModalData(data.data[0]);
+        setModalData(data.data[0]);
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 const setModalData = (data) => {
