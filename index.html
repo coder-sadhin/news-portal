@@ -133,19 +133,56 @@
                             <div class="container">
                                 <div>
                                     <h3>1. Difference Between var let const </h3>
-                                    <p class="fs-5 text-info ps-5">Ans: </p>
+                                    <p class="fs-5 text-info ps-5">Ans:</p>
+                                    <span class="fs-3 fw-bold mt-2">Var</span>
+                                    <ol>
+                                        <li>The scope of a var variable is functional scope.</li>
+                                        <li>It can be updated and re-declared into the scope.</li>
+                                        <li>It can be declared without initialization.</li>
+                                    </ol>
+                                    <span class="fs-3 fw-bold mt-2">Let</span>
+                                    <ol>
+                                        <li>The scope of a let variable is block scope.</li>
+                                        <li>It can be updated but cannot be re-declared into the scope.</li>
+                                        <li>It can be declared without initialization.</li>
+                                    </ol>
+                                    <span class="fs-3 fw-bold mt-2">Const</span>
+                                    <ol>
+                                        <li>The scope of a const variable is block scope.</li>
+                                        <li>It cannot be updated or re-declared into the scope.</li>
+                                        <li>It cannot be declared without initialization.</li>
+                                    </ol>
                                 </div>
                                 <div>
-                                    <h3>2. Difference between arrow function and normal function. </h3>
+                                    <h3>2. Difference between arrow function and regular function. </h3>
                                     <p class="fs-5 text-info ps-5">Ans: </p>
+                                    <span class="fs-4 fw-bold mt-2">
+                                        Example using regular function:-
+                                    </span>
+                                    <p>let x = function(){
+                                        console.log(arguments);
+                                        };
+                                        new x =(1,2,3);
+                                    </p>
+                                    <span class="fs-4 fw-bold mt-2">
+                                        Example using arrow function:-
+                                    </span>
+                                    <p>
+                                        let x = ()=> {
+                                        console.log(arguments);
+                                        };
+                                        new x(1,2,3);
+                                    </p>
                                 </div>
                                 <div>
-                                    <h3>3. Difference of map, foreach, filter, find. </h3>
+                                    <h3>3. Why do we use template string in Javascript? </h3>
                                     <p class="fs-5 text-info ps-5">Ans: </p>
-                                </div>
-                                <div>
-                                    <h3>4. Why do we use template string in Javascript? </h3>
-                                    <p class="fs-5 text-info ps-5">Ans: </p>
+                                    <p class="fs-5">
+                                        Template strings are a powerful feature of modern JavaScript released in ES6. It
+                                        lets us insert/interpolate variables and expressions into strings without
+                                        needing to concatenate like in older versions of JavaScript. It allows us to
+                                        create strings that are complex and contain dynamic elements.
+                                    </p>
                                 </div>
 
 
@@ -169,6 +206,7 @@
             </div>
         </section>
     </main>
+    <!-- footer section  -->
     <footer class="rounded">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2021 Copyright:
