@@ -63,11 +63,11 @@ const displayNews = (data) => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerText = '';
     data.forEach(news => {
-        // console.log(news);
+        console.log(news.author.img);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card', 'my-4');
         newsDiv.innerHTML = `
-        <div class="row p-3  d-flex flex-column flex-sm-row flex-md-row flex-lg-row">
+        <div onclick="detailsModal('${news._id}')" data-bs-toggle="modal" data-bs-target="#exampleModal" class="row p-3  d-flex flex-column flex-sm-row flex-md-row flex-lg-row">
      
             <div class="col-sm-4">
                 <img style="object-fit: cover;" class="img-fluid w-100 h-100 rounded-lg" src="${news.image_url}" alt="">
@@ -87,7 +87,7 @@ const displayNews = (data) => {
                             <div class="ms-3 d-flex align-items-center">
                                 <div>
                                     <span class="fs-5 fw-semibold">${news.author.name ? news.author.name : "No Author"}</span>
-                                    <p>${news.author.published_date}</p>
+                                    <p>${news.author.published_date ? news.author.published_date : "no data found"}</p>
                                 </div>
                             </div>
                         </div>
@@ -110,24 +110,35 @@ const displayNews = (data) => {
     })
 }
 
-
 getNews(8);
 
 
+// model show function here 
+const detailsModal = async (newsId) => {
+    // console.log(data);
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`
+    const res = await fetch(url);
+    const data = await res.json();
 
-
-// function for splilt and join details 
-
-const splitJoin = (data, from, end) => {
-
-    const dataArray = data.split(". ");
-    const sliceArray = dataArray.slice(from, end);
-    // console.log(sliceArray.join('.'));
-    return sliceArray.join('.');
-
+    setModalData(data.data[0]);
 }
 
-
-// category item select color
-// const selectedItem = document.getElementById('categori-section-item');
-// selectedItem.classList.add('text-success')
+const setModalData = (data) => {
+    const modalTitle = document.getElementById('exampleModalLabel');
+    modalTitle.innerText = data.title;
+    const modalContainer = document.getElementById('modal-body');
+    modalContainer.innerText = '';
+    const innerModal = document.createElement('div');
+    innerModal.classList.add('card', 'w-100');
+    innerModal.innerHTML = `
+            <div class="m-auto">
+            <img src="${data.thumbnail_url}" class="card-img-top w-100" alt="...">
+            </div>
+            <div class="card-body">
+             <p class="card-text fs-4 fw-bold"><span class="text-info">Publisher Name: </span>${data.author ? data.author.name : "No data found"}.</p>
+             <p class="card-text fs-5 fw-bold"><span class="text-info">Published Date: </span>${data.author.published_date ? data.author.published_date : "No data found"}.</p>
+             <p class="card-text fs-5 fw-bold"><span class="text-info pe-2">Total Views: </span>${data.total_view ? data.total_view : "No data found"}.</p>
+            </div>
+`
+    modalContainer.appendChild(innerModal);
+}
